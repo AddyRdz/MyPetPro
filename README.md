@@ -1,0 +1,2 @@
+# MyPetPro
+MyPetPro is an app that will hold your pets information such as; name, weight, health history, previous vet visits, medications, etc all in one place. In order to access the information you will have to create a profile for you and then you will create a profile for your pet. This app will hold all crucial dog information and will come in handy for when joining a new day care or in an emergency where you might not be able reach your physical records.
