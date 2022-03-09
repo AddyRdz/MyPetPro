@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView
+from django.views.generic import DetailView
 from django.http import HttpResponse
 from .models import Pet
 # Create your views here.
@@ -57,3 +58,7 @@ class PetCreate(CreateView):
     fields = ['name', 'img', 'owner', 'bio']
     template_name = 'pet_create.html'
     success_url = '/pet/'
+
+class PetDetail(DetailView):
+    model = Pet
+    template_name = "pet_detail.html"
