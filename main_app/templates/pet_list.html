@@ -4,4 +4,12 @@
 
 <h1>This is the Pet_List Page!</h1>
 
-{% endblock %}
+{% for pet in pets %} 
+<p>{{ pet.name }}</p>
+<p>{{ pet.owner }}</p>
+
+{% empty %}
+<h2>No Pets Available</h2>
+{%endfor%}
+
+{% endblock %} 

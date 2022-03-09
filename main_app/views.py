@@ -34,5 +34,5 @@ class PetList(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['pet'] = pets
+        context['pets'] = pets
         return context
