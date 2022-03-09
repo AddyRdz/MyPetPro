@@ -2,7 +2,7 @@ from unicodedata import name
 from django.shortcuts import render
 from django.views import View
 from django.views.generic.base import TemplateView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic import DetailView
 from django.http import HttpResponse
 from .models import Pet
@@ -62,3 +62,9 @@ class PetCreate(CreateView):
 class PetDetail(DetailView):
     model = Pet
     template_name = "pet_detail.html"
+
+class PetUpdate(UpdateView):
+    model = Pet
+    fields = ['name', 'img', 'owner', 'bio']
+    template_name = 'pet_update.html'
+    success_url = '/pet/'

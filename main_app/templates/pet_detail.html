@@ -5,4 +5,6 @@
 <p>Name:{{pet.name}}</p>
 <p>Bio:{{pet.bio}}</p>
 <img src="{{pet.img}}" alt="Pet Image - {{pet.name}}"/>
+
+<div><a href="{% url 'pet_list' %}">Back to Pets Page</a></div>
 {% endblock %}
