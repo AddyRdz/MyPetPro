@@ -41,7 +41,7 @@ class PetList(TemplateView):
         # name = self.request.GET.get("name")
         # print(name)
         # if name != None:
-        #     context['pets'] = Pet.object.filter(name_icontains=name)
+        #     context['pets'] = Pet.object.filter(name__icontains=name)
         #     context['header'] =f"Results for: {name}"
         # else:
         #     context['pets'] = Pet.objects.all()

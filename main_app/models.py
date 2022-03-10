@@ -8,6 +8,7 @@ class Pet(models.Model):
     img = models.CharField(max_length=250)
     owner = models.CharField(max_length=100)
     bio = models.TextField(max_length=500)
+    # created_at = models.DateTimeField(auto_now_add=True)
     
 
     def __str__(self):
@@ -15,3 +16,29 @@ class Pet(models.Model):
 
     class Meta:
         ordering = ['name']
+
+class Health(models.Model):
+    pet = models.OneToOneField(Pet,on_delete=models.CASCADE)
+    food = models.CharField(max_length=150)
+    health_issues = models.CharField(max_length=500)
+    weight = models.IntegerField(default=0)
+    rabies = models.BooleanField(default=False)
+    dhpp = models.BooleanField(default=False)
+    bordetella = models.BooleanField(default=False)
+    lepto= models.BooleanField(default=False)
+    canine_flu = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.pet
+
+# class Vaccine(models.Model):
+#     vaccine_type = ( 
+#         ('Rabies', 'Rabies'),
+#         ('DHPP', 'DHPP'),
+#         ('Bordetella', 'Bordetella'),
+#         ('Leptospirosis', 'Leptospirosis'),
+#         ('Canine Influenza', 'Canine Influenza'),
+
+#     )
+
+#     vaccine = models.ForeignKey(Health,on_delete=models.CASCADE)
