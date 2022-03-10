@@ -20,7 +20,7 @@ class Pet(models.Model):
 class Health(models.Model):
     pet = models.OneToOneField(Pet,on_delete=models.CASCADE, related_name="pets")
     food = models.CharField(max_length=150)
-    health_issues = models.CharField(max_length=500)
+    health_issues = models.TextField(max_length=500)
     weight = models.IntegerField(default=0)
     rabies = models.BooleanField(default=False)
     dhpp = models.BooleanField(default=False)
