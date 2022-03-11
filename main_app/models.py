@@ -37,6 +37,14 @@ class Health(models.Model):
     def __str__(self):
         return self.pet.name
 
+class HealthForm(ModelForm):
+    class Meta:
+        model=Health
+        fields = [ 'food', 'health_issues', 'weight', 'rabies', 'dhpp', 'bordetella', 'lepto', 'canine_flu']
+
+
+
+
 # class Vaccine(models.Model):
 #     vaccine_type = ( 
 #         ('Rabies', 'Rabies'),

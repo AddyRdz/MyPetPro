@@ -5,9 +5,11 @@
 <h1>This is the Pet_List Page!</h1>
 
 {% for pet in pets %} 
-<p>{{ pet.name }}</p>
+<a href="{% url 'pet_detail' pet.pk%}"><p>{{ pet.name }}</p></a>
+<div></div>
 <p>{{ pet.owner }}</p>
 <img src="{{pet.img}}" alt="Pet Image - {{pet.name}}"/>
+
 {% empty %}
 <h2>No Pets Available</h2>
 {%endfor%}

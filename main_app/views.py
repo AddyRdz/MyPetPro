@@ -6,7 +6,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from django.http import HttpResponse
-from .models import Pet, Health, PetForm
+from .models import HealthForm, Pet, Health, PetForm, HealthForm
 from django.shortcuts import redirect
 
 # Create your views here.
@@ -102,14 +102,19 @@ class HealthCreate(View):
         food = request.POST.get("food")
         health_issues = request.POST.get("health_issues")
         weight = request.POST.get("weight")
-        rabies = request.POST.get("rabies")
-        dhpp = request.POST.get("dhpp")
-        bordetella = request.POST.get("bordetella")
-        lepto = request.POST.get("lepto")
-        canine_flu = request.POST.get("canine_flu")
+        rabies = True if request.POST.get("rabies") == "on" else False
+        dhpp =  True if request.POST.get("dhpp") == "on" else False
+        bordetella = True if request.POST.get("bordetella") == "on" else False
+        lepto =  True if request.POST.get("lepto") == "on" else False
+        canine_flu = True if request.POST.get("canine_flu") == "on" else False
         pet = Pet.objects.get(pk=pk)
-        Health.objects.create(food=food, health_issues=health_issues, weight=weight, rabies=rabies, dhpp=dhpp, bordetella=bordetella, lepto=lepto, canine_flu=canine_flu, pet=pet)
-        return redirect('pet_list', pk=pk)
+        Health.objects.update(food=food, health_issues=health_issues, weight=weight, rabies=rabies, dhpp=dhpp, bordetella=bordetella, lepto=lepto, canine_flu=canine_flu, pet_id=pk)
+        return redirect('pet_detail',pk)
 
+    def get(self,request, pk):
+        print('whats up')
+        form=HealthForm()
+        context={"form": form} 
+        return render(request, "health_create.html", context)
 
 
