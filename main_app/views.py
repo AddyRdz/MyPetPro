@@ -98,7 +98,7 @@ class PetDelete(DeleteView):
     success_url = '/pet/'
 
 class HealthCreate(View):
-    def post(self, request, pk):
+    def post(self, request, healthpk, petpk):
         food = request.POST.get("food")
         health_issues = request.POST.get("health_issues")
         weight = request.POST.get("weight")
@@ -107,11 +107,11 @@ class HealthCreate(View):
         bordetella = True if request.POST.get("bordetella") == "on" else False
         lepto =  True if request.POST.get("lepto") == "on" else False
         canine_flu = True if request.POST.get("canine_flu") == "on" else False
-        pet = Pet.objects.get(pk=pk)
-        Health.objects.update(food=food, health_issues=health_issues, weight=weight, rabies=rabies, dhpp=dhpp, bordetella=bordetella, lepto=lepto, canine_flu=canine_flu, pet_id=pk)
-        return redirect('pet_detail',pk)
+        pet = Pet.objects.get(pk=petpk)
+        Health.objects.update(food=food, health_issues=health_issues, weight=weight, rabies=rabies, dhpp=dhpp, bordetella=bordetella, lepto=lepto, canine_flu=canine_flu)
+        return redirect('pet_detail',petpk)
 
-    def get(self,request, pk):
+    def get(self,request, petpk, healthpk):
         print('whats up')
         form=HealthForm()
         context={"form": form} 
