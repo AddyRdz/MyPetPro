@@ -29,7 +29,7 @@ class Health(models.Model):
     canine_flu = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.pet
+        return self.pet.name
 
 # class Vaccine(models.Model):
 #     vaccine_type = ( 

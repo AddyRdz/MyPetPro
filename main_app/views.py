@@ -5,7 +5,9 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from django.http import HttpResponse
-from .models import Pet
+from .models import Pet, Health
+from django.shortcuts import redirect
+
 # Create your views here.
 
 # Static Data
@@ -17,7 +19,7 @@ from .models import Pet
 #         self.bio=bio
 
 # Seed Data
-# pets = [
+# healths = [
 #     Pet("Joe", "img", "George Washington", "Joe loves going on walks and enjoys eating his dinner every night at 6 o clock."),
 #     Pet("Sprinkles", "img", "Lisa Siri", "Sprinkles is your friendly neighborhood cat and would rather be left outside than be stuck inside all day.")
 # ]
@@ -41,7 +43,7 @@ class PetList(TemplateView):
         # name = self.request.GET.get("name")
         # print(name)
         # if name != None:
-        #     context['pets'] = Pet.object.filter(name__icontains=name)
+        #     context['pets'] = Pet.objects.filter(name__icontains=name)
         #     context['header'] =f"Results for: {name}"
         # else:
         #     context['pets'] = Pet.objects.all()
@@ -73,4 +75,20 @@ class PetDelete(DeleteView):
     model = Pet
     template_name = "pet_delete_confirmation.html"
     success_url = '/pet/'
-    
+
+class HealthCreate(View):
+    def post(self, request, pk):
+        food = request.POST.get("food")
+        health_issues = request.POST.get("health_issues")
+        weight = request.POST.get("weight")
+        rabies = request.POST.get("rabies")
+        dhpp = request.POST.get("dhpp")
+        bordetella = request.POST.get("bordetella")
+        lepto = request.POST.get("lepto")
+        canine_flu = request.POST.get("canine_flu")
+        pet = Pet.objects.get(pk=pk)
+        Health.objects.create(food=food, health_issues=health_issues, weight=weight, rabies=rabies, dhpp=dhpp, bordetella=bordetella, lepto=lepto, canine_flu=canine_flu, pet=pet)
+        return redirect('pet_list', pk=pk)
+
+
+

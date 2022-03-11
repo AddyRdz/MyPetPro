@@ -6,5 +6,32 @@
 <p>Bio:{{pet.bio}}</p>
 <img src="{{pet.img}}" alt="Pet Image - {{pet.name}}"/>
 
+
+<form method="post" action="{% url 'health_create' pet.pets.pk %}">
+    {% csrf_token %}
+    <input type = "text" name="food" placeholder="Enter type of Food" required/>
+    <input type = "text" name="health_issues" placeholder="Enter Health Issues" required/>
+    <input type = "checkbox" name="rabies" placeholder="Rabies" />
+    <input type="submit" value="Create Health Info" />
+
+</form>
+
+<div>
+    <h2>Pet Health Details:</h2>    
+    <p>{{pet.pets.food}}</p>
+    <p>{{pet.pets.health_issues}}</p>
+    <p>Rabies:{{pet.pets.rabies}}</p>
+    <p>DHPP:{{pet.pets.dhpp}}</p>
+    <p>Bordetella:{{pet.pets.bordetella}}</p>
+    <p>Lepto{{pet.pets.lepto}}</p>
+    <p>Canine Flu:{{pet.pets.canine_flu}}</p>
+    
+</div>
+
+
+
+
 <div><a href="{% url 'pet_list' %}">Back to Pets Page</a></div>
+
+
 {% endblock %}
