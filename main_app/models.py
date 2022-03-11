@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ModelForm
 
 
 # Create your models here.
@@ -16,6 +17,11 @@ class Pet(models.Model):
 
     class Meta:
         ordering = ['name']
+
+class PetForm(ModelForm):
+    class Meta:
+        model=Pet
+        fields= ['name', 'img', 'owner', 'bio']
 
 class Health(models.Model):
     pet = models.OneToOneField(Pet,on_delete=models.CASCADE, related_name="pets")

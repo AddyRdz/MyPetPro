@@ -1,3 +1,4 @@
+from multiprocessing import context
 from unicodedata import name
 from django.shortcuts import render
 from django.views import View
@@ -5,7 +6,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from django.http import HttpResponse
-from .models import Pet, Health
+from .models import Pet, Health, PetForm
 from django.shortcuts import redirect
 
 # Create your views here.
@@ -55,11 +56,31 @@ class PetList(TemplateView):
         context['pets'] = Pet.objects.all()
         return context
 
-class PetCreate(CreateView):
-    model = Pet
-    fields = ['name', 'img', 'owner', 'bio']
-    template_name = 'pet_create.html'
-    success_url = '/pet/'
+class PetCreate(View):
+    def post(self, request):
+        print ("test,hello")
+        
+        name = request.POST.get("name")
+        img = request.POST.get("img")
+        owner = request.POST.get("owner")
+        bio = request.POST.get("bio")
+        new_pet=Pet.objects.create(name=name, img=img, owner=owner, bio=bio) 
+        Health.objects.create(pet=new_pet)
+        
+        return redirect ("pet_list")
+        
+    def get(self,request):
+            form=PetForm()
+            context={"form": form} 
+            return render(request, "pet_create.html", context)
+               
+        
+    
+    # model = Pet
+    # fields = ['name', 'img', 'owner', 'bio']
+    # template_name = 'pet_create.html'
+    # success_url = '/pet/'
+
 
 class PetDetail(DetailView):
     model = Pet

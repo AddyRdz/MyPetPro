@@ -7,14 +7,7 @@
 <img src="{{pet.img}}" alt="Pet Image - {{pet.name}}"/>
 
 
-<form method="post" action="{% url 'health_create' pet.pets.pk %}">
-    {% csrf_token %}
-    <input type = "text" name="food" placeholder="Enter type of Food" required/>
-    <input type = "text" name="health_issues" placeholder="Enter Health Issues" required/>
-    <input type = "checkbox" name="rabies" placeholder="Rabies" />
-    <input type="submit" value="Create Health Info" />
 
-</form>
 
 <div>
     <h2>Pet Health Details:</h2>    
