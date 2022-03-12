@@ -40,21 +40,18 @@ class PetList(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # This information will be used once I have added a search function to my pet_list 3/1 pm :30min
-        # name = self.request.GET.get("name")
-        # print(name)
-        # if name != None:
-        #     context['pets'] = Pet.objects.filter(name__icontains=name)
-        #     context['header'] =f"Results for: {name}"
-        # else:
-        #     context['pets'] = Pet.objects.all()
-        #     context['header'] = 'Pets'
-        # return context
-
-
-
-        context['pets'] = Pet.objects.all()
+        
+        name = self.request.GET.get("name")
+        print(name)
+        if name != None:
+            context['pets'] = Pet.objects.filter(name__icontains=name)
+            context['header'] =f"Results for: {name}"
+        else:
+            context['pets'] = Pet.objects.all()
+            context['header'] = 'Pets'
         return context
+
+
 
 class PetCreate(View):
     def post(self, request):
