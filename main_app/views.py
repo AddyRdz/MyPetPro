@@ -11,20 +11,6 @@ from django.shortcuts import redirect
 
 # Create your views here.
 
-# Static Data
-# class Pet:
-#     def __init__(self, name, image, owner, bio):
-#         self.name=name
-#         self.image=image
-#         self.owner=owner
-#         self.bio=bio
-
-# Seed Data
-# healths = [
-#     Pet("Joe", "img", "George Washington", "Joe loves going on walks and enjoys eating his dinner every night at 6 o clock."),
-#     Pet("Sprinkles", "img", "Lisa Siri", "Sprinkles is your friendly neighborhood cat and would rather be left outside than be stuck inside all day.")
-# ]
-
 class Home(TemplateView):
     # def get(self, request):
     #     return HttpResponse("MyPetPro Home")
@@ -40,7 +26,7 @@ class PetList(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        
+
         name = self.request.GET.get("name")
         print(name)
         if name != None:
