@@ -1,1 +1,1 @@
-web: gunicorn MyPetPro.wsgi
+web: gunicorn mypetpro_project.wsgi
