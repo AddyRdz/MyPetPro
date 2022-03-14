@@ -10,6 +10,15 @@ from .models import HealthForm, Pet, Health, PetForm, HealthForm
 from django.shortcuts import redirect
 from django.urls import reverse
 
+# Signup
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+
+# authorization decorators:
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+
+
 # Create your views here.
 
 class Home(TemplateView):
@@ -21,7 +30,8 @@ class About(TemplateView):
     template_name="about.html"
     # def get(self,request):
     #     return HttpResponse("MyPetPro About")
-    
+
+@method_decorator(login_required, name="dispatch")    
 class PetList(TemplateView):
     template_name="pet_list.html"
 
@@ -39,7 +49,7 @@ class PetList(TemplateView):
         return context
 
 
-
+@method_decorator(login_required, name="dispatch") 
 class PetCreate(View):
     def post(self, request):
         print ("test,hello")
@@ -74,13 +84,25 @@ class PetCreate(View):
     # template_name = 'pet_create.html'
     # success_url = '/pet/'
 
-
+@method_decorator(login_required, name="dispatch") 
 class PetDetail(DetailView):
     model = Pet
     template_name = "pet_detail.html"
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     name = self.request.GET.get("name")
+    #     print(name)
+    #     if name != None:
+    #         context['health'] = Health.objects.filter(name__icontains=name)
+    #         context ['header'] = f"Results for: {name}"
+    #     else:
+    #         context['health'] = Health.objects.all()
+    #         context['header'] = "List"
+    #     return context
     
 
-class PetUpdate(UpdateView):
+class PetUpdate(UpdateView): 
     model = Pet
     fields = ['name', 'img', 'owner', 'bio']
     template_name = 'pet_update.html'
@@ -110,5 +132,25 @@ class HealthCreate(View):
         form=HealthForm()
         context={"form": form} 
         return render(request, "health_create.html", context)
+
+class Signup(View):
+    # get request
+    def get(self,request):
+        form = UserCreationForm()
+        context = {"form": form}
+        return render(request, "registration/signup.html", context)
+
+    # post request
+    def post(self, request):
+        form = UserCreationForm(request.POST)
+
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('pet_list')
+        else:
+            context={"form":form}
+            return render(request, "registration/signup.html", context)
+
 
 
