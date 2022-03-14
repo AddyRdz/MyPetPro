@@ -14,18 +14,6 @@
     <h3 class="title is-3">Name of Owner</h3>
     <p>{{pet.owner}}</p>
 
-</div>
-<div class="Health Details">
-    <h4 class="title is -4">Health Information</h4>
-    <p>{{pet.pets.food}}</p>
-    <p>{{pet.pets.health_issues}}</p>
-    <p>Rabies:{{pet.pets.rabies}}</p>
-    <p>DHPP:{{pet.pets.dhpp}}</p>
-    <p>Bordetella:{{pet.pets.bordetella}}</p>
-    <p>Lepto:{{pet.pets.lepto}}</p>
-    <p>Canine Flu:{{pet.pets.canine_flu}}</p>
-
-</div>
 <div class="detail__container">
     <div class="buttons">
       <a href="{% url 'pet_update' pet.pk %}" class="button is-info">
@@ -40,8 +28,29 @@
       </a>
     </div>
 
+</div>
+<div class="Health Details">
+    <h4 class="title is -4">Health Information</h4>
+    <p>{{pet.pets.food}}</p>
+    <p>{{pet.pets.health_issues}}</p>
+    <p>Rabies:{{pet.pets.rabies}}</p>
+    <p>DHPP:{{pet.pets.dhpp}}</p>
+    <p>Bordetella:{{pet.pets.bordetella}}</p>
+    <p>Lepto:{{pet.pets.lepto}}</p>
+    <p>Canine Flu:{{pet.pets.canine_flu}}</p>
+</div>
+<div class="detail__container">
+    <div class="buttons">
+      <a href="{% url 'pet_update' pet.pk %}" class="button is-info">
+        <span class="icon">
+          <i class="fas fa-edit"></i>
+        </span>
+      </a>
+    </div>
+
+
 <div><a href="{% url 'health_create' pet.pk pet.pets.pk %}">Add Health Info</a></div>
-<div><a href="{% url 'pet_list' %}">Back to Pets Page</a></div>
+<!-- <div><a href="{% url 'pet_list' %}">Back to Pets Page</a></div> -->
 
 
 {% endblock %}
