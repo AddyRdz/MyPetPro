@@ -43,19 +43,19 @@
           </a>
   
           <div class="navbar-dropdown">
-            <a class="navbar-item">
-              About
-            </a>
             <a class="navbar-item" href="{% url 'pet_create' %}">
               Create New Pet
             </a>
-            <a class="navbar-item" href="">
-              Update
-            </a>
-            <hr class="navbar-divider">
+            <!-- <a class="navbar-item" >
+              About
+            </a> -->
+            <!-- <a class="navbar-item" href="">
+              
+            </a> -->
+            <!-- <hr class="navbar-divider">
             <a class="navbar-item">
               Report an issue
-            </a>
+            </a> -->
           </div>
         </div>
       </div>
@@ -74,8 +74,8 @@
       </div>
     </div> -->
     {% if user.is_authenticated %}
-          <div class="navbar-menu navbar-end">
-              <span class="navbar-item">Welcome: {{user.username}}</span>
+          <div class="navbar-end">
+              <div class="navbar-item">Welcome: {{user.username}}</div>
               <a class="navbar-item" href="{% url 'logout' %}">Logout</a>
           </div>
     {% else %}
