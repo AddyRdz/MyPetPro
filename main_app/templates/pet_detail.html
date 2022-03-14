@@ -26,7 +26,19 @@
     <p>Canine Flu:{{pet.pets.canine_flu}}</p>
 
 </div>
-
+<div class="detail__container">
+    <div class="buttons">
+      <a href="{% url 'pet_update' pet.pk %}" class="button is-info">
+        <span class="icon">
+          <i class="fas fa-edit"></i>
+        </span>
+      </a>
+      <a href="{% url 'pet_delete' pet.pk %}" class="button is-danger">
+        <span class="icon">
+          <i class="fas fa-trash-alt"></i>
+        </span>
+      </a>
+    </div>
 
 <div><a href="{% url 'health_create' pet.pk pet.pets.pk %}">Add Health Info</a></div>
 <div><a href="{% url 'pet_list' %}">Back to Pets Page</a></div>
