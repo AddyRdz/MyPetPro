@@ -1,16 +1,22 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<h1>Details About Pet!</h1>
-<p>Name:{{pet.name}}</p>
-<p>Bio:{{pet.bio}}</p>
-<img src="{{pet.img}}" alt="Pet Image - {{pet.name}}"/>
+<div class="detail__name">
+<h1 class="title">{{pet.name}}</h1>
+</div>
+<div class="detail__img">
+    <img src="{{pet.img}}" alt="Pet Image - {{pet.name}}"/>
+</div>
+<div class="detail__bio">
+    <h2 class="title is-2">Bio</h2>
+    <p>{{pet.bio}}</p>
+</div>
+<div class="detail__ownername">
+    <h3 class="title is-3">Name of Owner</h3>
+    <p>{{pet.owner}}</p>
 
-
-<div><a href="{% url 'health_create' pet.pk pet.pets.pk %}">Add Health Info</a></div>
-
-<div>
-    <h2>Pet Health Details:</h2>    
+</div>
+<div class="Health Details">
+    <h4 class="title is -4">Health Information</h4>
     <p>{{pet.pets.food}}</p>
     <p>{{pet.pets.health_issues}}</p>
     <p>Rabies:{{pet.pets.rabies}}</p>
@@ -18,12 +24,11 @@
     <p>Bordetella:{{pet.pets.bordetella}}</p>
     <p>Lepto{{pet.pets.lepto}}</p>
     <p>Canine Flu:{{pet.pets.canine_flu}}</p>
-    
+
 </div>
 
 
-
-
+<div><a href="{% url 'health_create' pet.pk pet.pets.pk %}">Add Health Info</a></div>
 <div><a href="{% url 'pet_list' %}">Back to Pets Page</a></div>
 
 

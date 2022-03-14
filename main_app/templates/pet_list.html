@@ -16,15 +16,26 @@
     <!--  This anchor tag will redirect back to artist list without a query param -->
     <a class="button is-dark" href="{% url 'pet_list' %}">Clear Search</a>
   </form>
-
+<div class="gallery">
 {% for pet in pets %} 
 <a href="{% url 'pet_detail' pet.pk%}"><p>{{ pet.name }}</p></a>
-<div></div>
-<p>{{ pet.owner }}</p>
-<img src="{{pet.img}}" alt="Pet Image - {{pet.name}}"/>
-
+<div class="card">
+    <div class="card-image">
+      <figure class="image is-square">
+        <img src="{{pet.img}}" alt="Pet Image - {{pet.name}}"/>
+        </figure>
+    </div>
+    <div class="card-header">
+        <p class="card-header-title">{{pet.name}}</p>
+    </div>
+</div>
+</a>    
 {% empty %}
-<h2>No Pets Available</h2>
+<article class="message">
+    <div class="message-header">
+        <h2>No Pets Available</h2>
+    </div>
+</article>
 {%endfor%}
-
+</div>
 {% endblock %} 

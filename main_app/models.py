@@ -11,7 +11,7 @@ class Pet(models.Model):
     owner = models.CharField(max_length=100)
     bio = models.TextField(max_length=500)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    # created_at = models.DateTimeField(auto_now_add=True)
+    
     
     
     
@@ -25,7 +25,7 @@ class Pet(models.Model):
 class PetForm(ModelForm):
     class Meta:
         model=Pet
-        fields= ['name', 'img', 'owner', 'bio']
+        fields= ['name', 'img', 'owner', 'bio', 'user']
 
 class Health(models.Model):
     pet = models.OneToOneField(Pet,on_delete=models.CASCADE, related_name="pets")
@@ -49,14 +49,4 @@ class HealthForm(ModelForm):
 
 
 
-# class Vaccine(models.Model):
-#     vaccine_type = ( 
-#         ('Rabies', 'Rabies'),
-#         ('DHPP', 'DHPP'),
-#         ('Bordetella', 'Bordetella'),
-#         ('Leptospirosis', 'Leptospirosis'),
-#         ('Canine Influenza', 'Canine Influenza'),
 
-#     )
-
-#     vaccine = models.ForeignKey(Health,on_delete=models.CASCADE)

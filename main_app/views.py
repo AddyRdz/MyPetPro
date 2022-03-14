@@ -8,6 +8,7 @@ from django.views.generic import DetailView
 from django.http import HttpResponse
 from .models import HealthForm, Pet, Health, PetForm, HealthForm
 from django.shortcuts import redirect
+from django.urls import reverse
 
 # Create your views here.
 
@@ -30,10 +31,10 @@ class PetList(TemplateView):
         name = self.request.GET.get("name")
         print(name)
         if name != None:
-            context['pets'] = Pet.objects.filter(name__icontains=name)
+            context['pets'] = Pet.objects.filter(name__icontains=name, user=self.request.user)
             context['header'] =f"Results for: {name}"
         else:
-            context['pets'] = Pet.objects.all()
+            context['pets'] = Pet.objects.filter(user=self.request.user)
             context['header'] = 'Pets'
         return context
 
@@ -47,7 +48,7 @@ class PetCreate(View):
         img = request.POST.get("img")
         owner = request.POST.get("owner")
         bio = request.POST.get("bio")
-        new_pet=Pet.objects.create(name=name, img=img, owner=owner, bio=bio) 
+        new_pet=Pet.objects.create(name=name, img=img, owner=owner, bio=bio, user=self.request.user) 
         Health.objects.create(pet=new_pet)
         
         return redirect ("pet_list")
@@ -56,7 +57,16 @@ class PetCreate(View):
             form=PetForm()
             context={"form": form} 
             return render(request, "pet_create.html", context)
-               
+                   
+   #  For Authorization  
+     # validate the form 
+    def form_valid(self,form):
+        form.instance.user=self.request.user
+        return super(PetCreate,self).form_valid(form)
+
+    # redirect
+    def get_success_url(self):
+        return reverse('pet_detail', kwargs={'pk': self.object.pk})
         
     
     # model = Pet
@@ -68,6 +78,7 @@ class PetCreate(View):
 class PetDetail(DetailView):
     model = Pet
     template_name = "pet_detail.html"
+    
 
 class PetUpdate(UpdateView):
     model = Pet

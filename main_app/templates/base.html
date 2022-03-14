@@ -16,7 +16,7 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="/">MyPetPro</a>
-        <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+        <!-- <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"> -->
       </a>
   
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -32,7 +32,7 @@
           Home
         </a>
   
-        <a class="navbar-item" href="">
+        <a class="navbar-item" href="{% url 'pet_list' %}">
           My Pets
         </a>
   
@@ -45,7 +45,7 @@
             <a class="navbar-item">
               About
             </a>
-            <a class="navbar-item" href="">
+            <a class="navbar-item" href="{% url 'pet_create' %}">
               Create New Pet
             </a>
             <a class="navbar-item" href="">
@@ -59,7 +59,7 @@
         </div>
       </div>
   
-      <div class="navbar-end">
+      <!-- <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
             <a class="button is-primary">
@@ -71,7 +71,17 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
+    {% if user.is_authenticated %}
+          <div class="navbar-menu navbar-end">
+              <span class="navbar-item">Welcome: {{user.username}}</span>
+              <a class="navbar-item" href="{% url 'logout' %}">Logout</a>
+          </div>
+    {% else %}
+            <div class="navbar-menu navbar-end">
+                <a class="navbar-item" href="{% url 'login' %}">Log In</a>
+            </div>
+    {% endif %}
   </nav>
     <div>      
   {% block content %}
