@@ -60,19 +60,19 @@
         </div>
       </div>
   
-      <!-- <div class="navbar-end">
+      <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-primary">
+            <a class="button is-primary" href="{% url 'signup' %}">
               <strong>Sign up</strong>
             </a>
-            <a class="button is-light">
+            <!-- <a class="button is-light">
               Log in
-            </a>
+            </a> -->
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
     {% if user.is_authenticated %}
           <div class="navbar-end">
               <div class="navbar-item">Welcome: {{user.username}}</div>
