@@ -1,6 +1,6 @@
 body{
-    background: grey;
-    
+    background-color: pink;
+    min-height: 100vh;
 }
 
 .img {
@@ -13,7 +13,6 @@ body{
     padding-right: 0;
     color: black;
 }
-
 
 .gallery {
     display: grid;
@@ -41,8 +40,27 @@ body{
     flex-wrap: wrap;
     align-items: center;
 }
+
 .home_image{
     margin: auto;
 }
 
+.container_title{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.title_home{
+    margin: auto;
+}
+.card-detail .card-pet-detail{
+    max-width: 50%;
+    object-fit: cover;
+    margin: auto;
+}
+/* .container-detail .card-detail{
+    margin: auto;
+   
+} */
 
