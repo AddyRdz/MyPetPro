@@ -21,3 +21,4 @@ User
 ### Stretch Goals
 <br>Upload images directly from phone.
 <br>Apply calendar section that can remind owner of when to give medication to pet again.
+<br>Show information to nearest vet.
