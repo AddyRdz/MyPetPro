@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1>My Pets!</h1>
+<h1 class="title pt-5">{{ header }}</h1>
 <form class="mb-5" method="get">
     <div class="field has-addons">
       <div class="control">
@@ -18,7 +18,7 @@
   </form>
 <div class="gallery">
 {% for pet in pets %} 
-<a href="{% url 'pet_detail' pet.pk%}"><p>{{ pet.name }}</p></a>
+<a href="{% url 'pet_detail' pet.pk%}">
 <div class="card">
     <div class="card-image">
       <figure class="image is-square">
