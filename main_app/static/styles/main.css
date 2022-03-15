@@ -20,6 +20,8 @@ body{
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     justify-content: center;
     gap: 40px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 .card{
     background-color: rgba(255, 255, 255, .3)
