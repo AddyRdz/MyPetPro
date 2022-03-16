@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Add Health</h1>
+<br>
+<br>
+<br>
+<h1>Add Health for your Pet</h1>
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}

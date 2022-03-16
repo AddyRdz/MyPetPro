@@ -22,3 +22,5 @@ User
 <br>Upload images directly from phone.
 <br>Apply calendar section that can remind owner of when to give medication to pet again.
 <br>Show information to nearest vet.
+<br>Make Home more included to the whole app.
+<br>Do styling on the individual forms.

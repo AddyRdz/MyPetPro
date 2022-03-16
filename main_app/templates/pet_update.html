@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<br>
+<br>
+<br>
 <h1>Update {{pet.name}} - <a href="{% url 'pet_detail' pet.pk%}">Back to {{pet.name}} </a></h1>
 <form method="POST">
     {% csrf_token %}
