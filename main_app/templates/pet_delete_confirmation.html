@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<br>
+<br>
+<br>
 <h1>Are you sure you want to delete {{pet.name}}? </h1>
 <form method ="POST">
     {% csrf_token %}
