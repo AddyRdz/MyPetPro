@@ -18,6 +18,12 @@ User
 <img width="854" alt="Screen Shot 2022-03-07 at 11 53 45 AM" src="https://media.git.generalassemb.ly/user/40831/files/a6180c00-9e0d-11ec-9dad-e741125f1d84">
 
 ### Version 1.0
+<img width="1718" alt="Screen Shot 2022-03-15 at 10 32 31 PM" src="https://user-images.githubusercontent.com/95986357/158512199-f14f74fd-d770-435d-a675-ccf1de814b14.png">
+
+<img width="1725" alt="Screen Shot 2022-03-15 at 10 35 39 PM" src="https://user-images.githubusercontent.com/95986357/158512224-f8977ab3-bb9c-45b6-b5f8-eb7a9a3797ba.png">
+
+
+<img width="1722" alt="Screen Shot 2022-03-15 at 10 35 55 PM" src="https://user-images.githubusercontent.com/95986357/158512247-0c4f3d3d-df48-443a-8337-3a08376b49c8.png">
 
 
 ### Stretch Goals
