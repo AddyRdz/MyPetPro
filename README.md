@@ -3,17 +3,17 @@
 ### Live Link
 >* http://my-pet-pro.herokuapp.com/
 ### Your tech stack (frontend, backend, database)
-><br> * Django 
-<br> * PostgreSQL
+>* Django 
+>* PostgreSQL
 ### List of backend models and their properties
 User
-><br>* Pet - About, Name, Owner
-<br>* Health-Shot records, Diet, Medication
+>* Pet - About, Name, Owner
+>* Health-Shot records, Diet, Medication
 ### User stories
-><br>* As a user, I will be able to log in to my personal profile.
-<br>* As a user, I will be able to add my pet.
-<br>* As a user, I will be able to edit my pet information.
-<br>* As a user, my pet information will only be visible to me.
+>* As a user, I will be able to log in to my personal profile.
+>* As a user, I will be able to add my pet.
+>* As a user, I will be able to edit my pet information.
+>* As a user, my pet information will only be visible to me.
 ### Wireframes
 ><img width="981" alt="Screen Shot 2022-03-07 at 11 53 16 AM" src="https://media.git.generalassemb.ly/user/40831/files/82ed5c80-9e0d-11ec-9589-f0b64c9b1602">
 ><img width="904" alt="Screen Shot 2022-03-07 at 11 53 34 AM" src="https://media.git.generalassemb.ly/user/40831/files/a1ebee80-9e0d-11ec-9b1e-5ffaa47347a4">
@@ -29,9 +29,9 @@ User
 
 
 ### Stretch Goals
-><br>* Upload images directly from phone.
-><br>* Apply calendar section that can remind owner of when to give medication to pet again.
-><br>* Show information to nearest vet.
-><br>* Make Home more included to the whole app.
-><br>* Do styling on the individual forms.
-><br>* Depending on pet selection, you get specific form that pertains to the type of pet.
+>* Upload images directly from phone.
+>* Apply calendar section that can remind owner of when to give medication to pet again.
+>* Show information to nearest vet.
+>* Make Home more included to the whole app.
+>* Do styling on the individual forms.
+>* Depending on pet selection, you get specific form that pertains to the type of pet.
